@@ -56,7 +56,6 @@ var start = new Date(now.getFullYear(), 0, 0);
 var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
 var oneDay = 1000 * 60 * 60 * 24;
 var day = Math.floor(diff / oneDay);
-console.log('Day of year: ' + day);
 
 function leapyear(year) {
     return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
@@ -103,4 +102,4 @@ pifDate.day = setPifDay();
 
 pifDate.fullDate = `The year ${pifDate.year}, the month of ${pifDate.month}, day ${pifDate.day}`;
 
-document.getElementById("date").innerText = pifDate.fullDate;
+module.exports = pifDate;

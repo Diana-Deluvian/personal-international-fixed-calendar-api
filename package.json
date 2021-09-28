@@ -1,0 +1,27 @@
+{
+  "name": "personal-international-fixed-calendar-api",
+  "version": "1.0.0",
+  "description": "Provides a date corresponding to my personal international fixed calendar date",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diana-Deluvian/personal-international-fixed-calendar-api.git"
+  },
+  "keywords": [
+    "international-fixed-calendar"
+  ],
+  "author": "Diana Deluvian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diana-Deluvian/personal-international-fixed-calendar-api/issues"
+  },
+  "homepage": "https://github.com/Diana-Deluvian/personal-international-fixed-calendar-api#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
