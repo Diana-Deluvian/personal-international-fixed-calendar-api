@@ -51,9 +51,10 @@ let days = [
     "day28"
 ]
 
-var now = new Date(2024, 5, 22);
+var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
 var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+//makes sure to account for daylight savings times
 var oneDay = 1000 * 60 * 60 * 24;
 var day = Math.floor(diff / oneDay);
 
@@ -102,4 +103,40 @@ pifDate.day = setPifDay();
 
 pifDate.fullDate = `The year ${pifDate.year}, the month of ${pifDate.month}, day ${pifDate.day}`;
 
-module.exports = pifDate;
+function convertBack(pif){
+    let year, month = 0, days;
+    if(pif.days < 11) {
+        year = pif.year + 2020;
+        days = pif.days + 355;
+        console.log("one", days)
+    }
+    else { 
+        year = pif.year + 2021;
+        days = pif.days - 10;
+        console.log("two", days)
+    }
+    if(pif.days === "New Years day!") days = 355;
+    //month is 0 because we don't need to do the calculations ourselves
+    if(leapyear(year)) {
+        if(pif.days === "Summer solstice day!") days = 173;
+        if(pif.days > 182 && pif.days < 366) days = pif.days - 9;
+        if(pif.days < 11) days = pif.days+356;
+        if(pif.days < 183) days = pif.days - 10;
+        if(pif.days === "New Years day!") days = 356;
+        console.log("three", days)
+    }
+    return new Date(Date.UTC(year, month, days));
+    // error - it moves the hours 1 hour back and thus give sthe wrong date, look into
+}
+
+function getpifDate() {
+    return pifDate;
+}
+
+
+module.exports = {
+    getpifDate, convertBack
+};
+
+
+
