@@ -112,12 +112,13 @@ pifDate.fullDate = `The year "${pifDate.year}", the month of ${pifDate.month}, $
 function convertBack(pif){
     let year, month = 0, days;
     if(pif.days < 11) {
-        year = pif.year + 2020;
+        year = (years.indexOf(pif.year) || pif.year) + 2020;
+        console.log(year);
         days = pif.days + 355;
         console.log("one", days)
     }
     else { 
-        year = pif.year + 2021;
+        year = (years.indexOf(pif.year) || pif.year) + 2021;
         days = pif.days - 10;
         console.log("two", days)
     }
