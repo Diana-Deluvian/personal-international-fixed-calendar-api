@@ -4,52 +4,57 @@
 // On leap years, there is an extra day, called Leap Years Day, occuring on the 21st of June
 // which is generally the summer solstice in the northern hemisphere
 
-let months = [
-    "First",
-    "SecondM",
-    "Third",
-    "Fourth",
-    "Fifth",
-    "Sixth",
-    "Seventh",
-    "Eight",
-    "Ninth",
-    "Tenth",
-    "Eleventh",
-    "Twelfth",
-    "Thirteenth"
+const months = [
+    "Hope",
+    "Growth",
+    "Bravery",
+    "Prosperity",
+    "Love",
+    "Resolve",
+    "Struggle",
+    "Pennance",
+    "Fear",
+    "Longing",
+    "Preparation",
+    "Desperation",
+    "Nightmares"
 ];
 
-let days = [
-    "Day1",
-    "Day2",
-    "Day3",
-    "day4",
-    "day5",
-    "day6",
-    "day7",
-    "day8",
-    "day9",
-    "day10",
-    "day11",
-    "day12",
-    "day13",
-    "day14",
-    "day15",
-    "day16",
-    "day17",
-    "day18",
-    "day19",
-    "day20",
-    "day21",
-    "day22",
-    "day23",
-    "day24",
-    "day25",
-    "day26",
-    "day27",
-    "day28"
-]
+const days = [
+    "Day 1",
+    "Day 2",
+    "Day 3",
+    "Day 4",
+    "Day 5",
+    "Day 6",
+    "Day 7",
+    "Day 8",
+    "Day 9",
+    "Day 10",
+    "Day 11",
+    "Day 12",
+    "Day 13",
+    "Day 14",
+    "Day 15",
+    "Day 16",
+    "Day 17",
+    "Day 18",
+    "Day 19",
+    "Day 20",
+    "Day 21",
+    "Day 22",
+    "Day 23",
+    "Day 24",
+    "Day 25",
+    "Day 26",
+    "Day 27",
+    "Day 28"
+];
+
+const years = [
+    "The before times",
+    "Unravel"
+    ];
 
 var now = new Date();
 var start = new Date(now.getFullYear(), 0, 0);
@@ -82,8 +87,9 @@ const setpifDays = () => {
 pifDate.days = setpifDays();
 
 const setpifYear = () => {
-    if(pifDate.days < 11) return now.getFullYear() - 2020;
-    return now.getFullYear() - 2021;
+    const year = now.getFullYear();
+    if(pifDate.days < 11) return years[year - 2020] || year - 2020;
+    return years[year - 2021] || year - 2021 ;
 }
 
 pifDate.year = setpifYear();
@@ -101,7 +107,7 @@ const setPifDay = () => {
 
 pifDate.day = setPifDay();
 
-pifDate.fullDate = `The year ${pifDate.year}, the month of ${pifDate.month}, day ${pifDate.day}`;
+pifDate.fullDate = `The year "${pifDate.year}", the month of ${pifDate.month}, ${pifDate.day}`;
 
 function convertBack(pif){
     let year, month = 0, days;
